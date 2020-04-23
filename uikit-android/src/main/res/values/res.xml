@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="StyledButton">
-        <attr name="primaryColor" format="enum">
+        <attr name="accent" format="enum">
             <enum name="teal" value="0" />
             <enum name="orange" value="1" />
             <enum name="red" value="2" />

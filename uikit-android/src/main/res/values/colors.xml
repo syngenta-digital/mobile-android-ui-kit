@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="teal_100">#F2FDF9</color>
+    <color name="teal_300">#D8F3E9</color>
     <color name="teal_500">#238661</color>
     <color name="teal_700">#15563E</color>
+    <color name="orange_100">#FDF7F2</color>
+    <color name="orange_300">#FCE8D9</color>
     <color name="orange_500">#F28838</color>
     <color name="orange_700">#9E5015</color>
+    <color name="red_100">#FEF6F6</color>
+    <color name="red_300">#FAE1E0</color>
     <color name="red_500">#EC3B35</color>
     <color name="red_700">#AF1D18</color>
+    <color name="blue_100">#F1F5FD</color>
+    <color name="blue_300">#D9E3F7</color>
     <color name="blue_500">#3666C4</color>
     <color name="blue_700">#113883</color>
+    <color name="yellow_100">#FEF9EB</color>
+    <color name="yellow_300">#FCECBA</color>
     <color name="yellow_500">#F6CA46</color>
     <color name="yellow_700">#836407</color>
     <color name="white">#FFFFFF</color>

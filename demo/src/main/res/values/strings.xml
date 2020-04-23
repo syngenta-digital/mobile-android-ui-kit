@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">UIKit</string>
+    <string name="primary_button">Primary Button</string>
+    <string name="secondary_button">Secondary Button</string>
+    <string name="tertiary_button">Tertiary Button</string>
+    <string name="text_button">Text Button</string>
 </resources>
