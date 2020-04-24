@@ -4,4 +4,7 @@
     <string name="secondary_button">Secondary Button</string>
     <string name="tertiary_button">Tertiary Button</string>
     <string name="text_button">Text Button</string>
+    <string name="syngenta_uikit">Syngenta UIKit</string>
+    <string name="home">Home</string>
+    <string name="buttons">Buttons</string>
 </resources>
