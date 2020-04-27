@@ -1,8 +1,14 @@
 package com.syngenta.uikit_android
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.StateListDrawable
 import android.util.AttributeSet
 import android.widget.Button
+import androidx.annotation.ColorInt
+import androidx.core.graphics.ColorUtils
 
 class StyledButton : Button {
 
@@ -21,20 +27,22 @@ class StyledButton : Button {
         TEXT
     }
 
-    var colorGroup: Int = 0
-    var type: Int = 0
+    var colorGroup: Int = -1
+    var type: Int = 3
+    var overrideColor: Int = -1
 
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.StyledButton)
-        colorGroup = typedArray.getInt(R.styleable.StyledButton_accent, 0)
-        type = typedArray.getInt(R.styleable.StyledButton_type, 0)
+        colorGroup = typedArray.getInt(R.styleable.StyledButton_colorTheme, -1)
+        type = typedArray.getInt(R.styleable.StyledButton_type, 3)
+        overrideColor = typedArray.getColor(R.styleable.StyledButton_colorNew, -1)
         refreshTheme()
         typedArray.recycle()
     }
 
-    fun setAccentColor(color: ColorGroup) {
+    fun setColorTheme(color: ColorGroup) {
         colorGroup = when (color) {
             ColorGroup.TEAL -> 0
             ColorGroup.ORANGE -> 1
@@ -42,6 +50,11 @@ class StyledButton : Button {
             ColorGroup.BLUE -> 3
             ColorGroup.YELLOW -> 4
         }
+        refreshTheme()
+    }
+
+    fun setColorTheme(@ColorInt color: Int) {
+        overrideColor = color
         refreshTheme()
     }
 
@@ -56,8 +69,13 @@ class StyledButton : Button {
     }
 
     private fun refreshTheme() {
-        this.setTextColor(resources.getColor(getTextColor()))
-        this.background = resources.getDrawable(getBackgroundRes())
+        if (overrideColor != -1) {
+            this.setTextColor(if (type == 0) resources.getColor(R.color.white) else overrideColor)
+            this.background = getCustomBackground()
+        } else {
+            this.setTextColor(resources.getColor(getTextColor()))
+            this.background = resources.getDrawable(getBackgroundRes())
+        }
     }
 
     private fun getBackgroundRes(): Int {
@@ -128,5 +146,55 @@ class StyledButton : Button {
             4 -> R.color.yellow_500
             else -> R.color.teal_500
         }
+    }
+
+
+    private fun getCustomBackground(): Drawable {
+        val defaultState = GradientDrawable()
+        defaultState.cornerRadius = 10f
+
+        val pressedState = GradientDrawable()
+        pressedState.cornerRadius = 10f
+
+        when (type) {
+            0 -> {
+                defaultState.setColor(overrideColor)
+                pressedState.setColor(getPrimaryPressedShade())
+            }
+            1 -> {
+                defaultState.setColor(getSecondaryDefaultShade())
+                pressedState.setColor(getSecondaryPressedShade())
+            }
+            2 -> {
+                defaultState.setStroke(3, overrideColor)
+                pressedState.setStroke(3, overrideColor)
+                defaultState.setColor(resources.getColor(R.color.white))
+                pressedState.setColor(resources.getColor(R.color.neutral_500))
+            }
+            else -> {
+                defaultState.setColor(resources.getColor(R.color.white))
+                pressedState.setColor(resources.getColor(R.color.neutral_500))
+            }
+        }
+
+        val states = StateListDrawable()
+        states.addState(intArrayOf(-android.R.attr.state_enabled), defaultState)
+        states.addState(intArrayOf(android.R.attr.state_pressed), pressedState)
+        return states
+    }
+
+    private fun getPrimaryPressedShade(): Int {
+        val hsv = FloatArray(3)
+        Color.colorToHSV(overrideColor, hsv)
+        hsv[2] *= 0.7f
+        return Color.HSVToColor(hsv)
+    }
+
+    private fun getSecondaryPressedShade(): Int {
+        return ColorUtils.setAlphaComponent(overrideColor, 64)
+    }
+
+    private fun getSecondaryDefaultShade(): Int {
+        return ColorUtils.setAlphaComponent(overrideColor, 16)
     }
 }

@@ -15,7 +15,7 @@
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
         android:text="@string/primary_button"
-        app:accent="teal"
+        app:colorTheme="teal"
         app:layout_constraintTop_toTopOf="parent"
         app:type="primary" />
 
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:text="@string/secondary_button"
-        app:accent="teal"
+        app:colorTheme="teal"
         app:layout_constraintTop_toBottomOf="@id/primaryButton"
         app:type="secondary" />
 
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:text="@string/tertiary_button"
-        app:accent="teal"
+        app:colorTheme="teal"
         app:layout_constraintTop_toBottomOf="@id/secondaryButton"
         app:type="tertiary" />
 
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:text="@string/text_button"
-        app:accent="teal"
+        app:colorTheme="teal"
         app:layout_constraintTop_toBottomOf="@id/tertiaryButton"
         app:type="text" />
 

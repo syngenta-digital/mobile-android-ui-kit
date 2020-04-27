@@ -60,10 +60,10 @@ class ButtonsFragment : Fragment() {
     }
 
     private fun setButtonColor(color: StyledButton.ColorGroup) {
-        primaryButton.setAccentColor(color)
-        secondaryButton.setAccentColor(color)
-        tertiaryButton.setAccentColor(color)
-        textButton.setAccentColor(color)
+        primaryButton.setColorTheme(color)
+        secondaryButton.setColorTheme(color)
+        tertiaryButton.setColorTheme(color)
+        textButton.setColorTheme(color)
     }
 
     private fun clearAllChecks() {
