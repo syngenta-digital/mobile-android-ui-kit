@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.syngenta.uikit.MainActivity
 import com.syngenta.uikit.R
-import com.syngenta.uikit_android.StyledButton
+import com.syngenta.uikit_android.ColorGroup
 import kotlinx.android.synthetic.main.fragment_buttons.*
 
 class ButtonsFragment : Fragment() {
@@ -31,35 +31,35 @@ class ButtonsFragment : Fragment() {
         selectTeal.setOnClickListener {
             clearAllChecks()
             selectTeal.setImageResource(R.drawable.ic_check)
-            setButtonColor(StyledButton.ColorGroup.TEAL)
+            setButtonColor(ColorGroup.TEAL)
         }
 
         selectBlue.setOnClickListener {
             clearAllChecks()
             selectBlue.setImageResource(R.drawable.ic_check)
-            setButtonColor(StyledButton.ColorGroup.BLUE)
+            setButtonColor(ColorGroup.BLUE)
         }
 
         selectYellow.setOnClickListener {
             clearAllChecks()
             selectYellow.setImageResource(R.drawable.ic_check)
-            setButtonColor(StyledButton.ColorGroup.YELLOW)
+            setButtonColor(ColorGroup.YELLOW)
         }
 
         selectRed.setOnClickListener {
             clearAllChecks()
             selectRed.setImageResource(R.drawable.ic_check)
-            setButtonColor(StyledButton.ColorGroup.RED)
+            setButtonColor(ColorGroup.RED)
         }
 
         selectOrange.setOnClickListener {
             clearAllChecks()
             selectOrange.setImageResource(R.drawable.ic_check)
-            setButtonColor(StyledButton.ColorGroup.ORANGE)
+            setButtonColor(ColorGroup.ORANGE)
         }
     }
 
-    private fun setButtonColor(color: StyledButton.ColorGroup) {
+    private fun setButtonColor(color: ColorGroup) {
         primaryButton.setColorTheme(color)
         secondaryButton.setColorTheme(color)
         tertiaryButton.setColorTheme(color)
