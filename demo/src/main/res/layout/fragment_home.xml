@@ -6,24 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_heading"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="@string/syngenta_uikit"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="160dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.syngenta.uikit_android.StyledButton
-        android:id="@+id/button_buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="@string/buttons"
-        app:layout_constraintTop_toBottomOf="@id/text_heading"
-        app:type="text" />
+        <TextView
+            android:id="@+id/text_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/syngenta_ui_kit"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <com.syngenta.uikit_android.StyledButton
+            android:id="@+id/button_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/buttons"
+            app:type="text" />
+
+        <com.syngenta.uikit_android.StyledButton
+            android:id="@+id/button_dialogs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/dialogs"
+            app:type="text" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

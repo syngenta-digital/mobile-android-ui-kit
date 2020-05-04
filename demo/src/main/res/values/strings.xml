@@ -4,7 +4,10 @@
     <string name="secondary_button">Secondary Button</string>
     <string name="tertiary_button">Tertiary Button</string>
     <string name="text_button">Text Button</string>
-    <string name="syngenta_uikit">Syngenta UIKit</string>
+    <string name="syngenta_ui_kit">Syngenta UIKit</string>
     <string name="home">Home</string>
     <string name="buttons">Buttons</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dialogs">Dialogs</string>
+    <string name="show_simple_dialog">Show Simple Dialog</string>
 </resources>

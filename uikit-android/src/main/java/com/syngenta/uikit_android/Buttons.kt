@@ -10,15 +10,15 @@ import android.widget.Button
 import androidx.annotation.ColorInt
 import androidx.core.graphics.ColorUtils
 
-class StyledButton : Button {
+enum class ColorGroup {
+    TEAL,
+    ORANGE,
+    RED,
+    BLUE,
+    YELLOW
+}
 
-    enum class ColorGroup {
-        TEAL,
-        ORANGE,
-        RED,
-        BLUE,
-        YELLOW
-    }
+class StyledButton : Button {
 
     enum class ButtonType {
         PRIMARY,

@@ -25,6 +25,10 @@ class HomeFragment : Fragment() {
         button_buttons.setOnClickListener {
             (activity as MainActivity).showButtonsLayout()
         }
+
+        button_dialogs.setOnClickListener {
+            (activity as MainActivity).showDialogsLayout()
+        }
     }
 
     override fun onResume() {
