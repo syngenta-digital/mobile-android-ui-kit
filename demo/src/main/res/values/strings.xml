@@ -10,4 +10,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dialogs">Dialogs</string>
     <string name="show_simple_dialog">Show Simple Dialog</string>
+    <string name="color">color</string>
+    <string name="colors">Colors</string>
 </resources>

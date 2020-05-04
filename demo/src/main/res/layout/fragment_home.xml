@@ -40,6 +40,14 @@
             android:text="@string/dialogs"
             app:type="text" />
 
+        <com.syngenta.uikit_android.StyledButton
+            android:id="@+id/button_colors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/colors"
+            app:type="text" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -49,7 +49,7 @@ class DialogsFragment : Fragment() {
             ).show()
             styledDialog.dismiss()
         })
-        styledDialog.setColorTheme(ColorGroup.TEAL)
+        styledDialog.setColorTheme(resources.getColor(R.color.colorAccent))
         styledDialog.show()
     }
 }
