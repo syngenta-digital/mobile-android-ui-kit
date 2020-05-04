@@ -12,4 +12,5 @@
     <string name="show_simple_dialog">Show Simple Dialog</string>
     <string name="color">color</string>
     <string name="colors">Colors</string>
+    <string name="list_view">List View</string>
 </resources>

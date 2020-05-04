@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.syngenta.uikit.fragments.ButtonsFragment
-import com.syngenta.uikit.fragments.ColorsFragment
-import com.syngenta.uikit.fragments.DialogsFragment
-import com.syngenta.uikit.fragments.HomeFragment
+import com.syngenta.uikit.fragments.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -36,6 +33,10 @@ class MainActivity : AppCompatActivity() {
 
     fun showColorsLayout() {
         navigateTo(ColorsFragment())
+    }
+
+    fun showListViewLayout() {
+        navigateTo(ListViewFragment())
     }
 
     private fun navigateTo(fragment: Fragment) {
