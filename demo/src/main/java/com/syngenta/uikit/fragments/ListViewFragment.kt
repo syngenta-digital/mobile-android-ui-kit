@@ -1,7 +1,6 @@
 package com.syngenta.uikit.fragments
 
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_list_view.*
 /**
  * A simple [Fragment] subclass.
  */
-class ListViewFragment : Fragment() {
+class ListViewFragment : Fragment(), StyledItemCallback {
 
     var adapter: StyledListAdapter<ListItem>? = null
 
@@ -40,7 +39,7 @@ class ListViewFragment : Fragment() {
             context!!,
             initList(),
             recycler_view_generic,
-            CallbackHandler(context!!, this)
+            this
         )
     }
 
@@ -58,7 +57,7 @@ class ListViewFragment : Fragment() {
         return itemList.toTypedArray()
     }
 
-    fun addItem() {
+    private fun addItem() {
         counter++
         itemList.add(
             ListItem(
@@ -75,16 +74,10 @@ class ListViewFragment : Fragment() {
         val itemList = mutableListOf<ListItem>()
         var counter: Int = 0
     }
-}
 
-class CallbackHandler(
-    val context: Context,
-    private val listViewFragment: ListViewFragment
-) : StyledItemCallback {
     override fun onClick(item: StyledListItem) {
-        listViewFragment.addItem()
+        addItem()
     }
-
 }
 
 class ListItem(
