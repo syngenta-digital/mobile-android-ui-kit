@@ -7,7 +7,6 @@ import android.view.View
 import androidx.annotation.ColorInt
 import kotlinx.android.synthetic.main.styled_dialog.view.*
 
-
 class StyledDialog(
     context: Context,
     heading: String? = null,

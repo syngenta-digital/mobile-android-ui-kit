@@ -21,6 +21,7 @@
             android:gravity="center"
             android:padding="16dp"
             android:text="@string/syngenta_ui_kit"
+            android:textColor="@android:color/black"
             android:textSize="32sp"
             android:textStyle="bold" />
 
@@ -30,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/buttons"
+            app:colorNew="@android:color/black"
             app:type="text" />
 
         <com.syngenta.uikit_android.StyledButton
@@ -38,6 +40,25 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/dialogs"
+            app:colorNew="@android:color/black"
+            app:type="text" />
+
+        <com.syngenta.uikit_android.StyledButton
+            android:id="@+id/button_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/list_view"
+            app:colorNew="@android:color/black"
+            app:type="text" />
+
+        <com.syngenta.uikit_android.StyledButton
+            android:id="@+id/button_colors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/colors"
+            app:colorNew="@android:color/black"
             app:type="text" />
 
     </LinearLayout>
