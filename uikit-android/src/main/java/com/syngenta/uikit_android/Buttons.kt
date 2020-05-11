@@ -30,6 +30,7 @@ class StyledButton : Button {
     var colorGroup: Int = -1
     var type: Int = 3
     var overrideColor: Int = -1
+    var isActive: Boolean = true
 
     constructor(context: Context) : super(context)
 
@@ -38,6 +39,7 @@ class StyledButton : Button {
         colorGroup = typedArray.getInt(R.styleable.StyledButton_colorTheme, -1)
         type = typedArray.getInt(R.styleable.StyledButton_type, 3)
         overrideColor = typedArray.getColor(R.styleable.StyledButton_colorNew, -1)
+        isActive = this.isEnabled
         refreshTheme()
         typedArray.recycle()
     }
@@ -50,6 +52,12 @@ class StyledButton : Button {
             ColorGroup.BLUE -> 3
             ColorGroup.YELLOW -> 4
         }
+        refreshTheme()
+    }
+
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        isActive = enabled
         refreshTheme()
     }
 
@@ -71,10 +79,12 @@ class StyledButton : Button {
     private fun refreshTheme() {
         if (overrideColor != -1) {
             this.setTextColor(if (type == 0) resources.getColor(R.color.white) else overrideColor)
-            this.background = getCustomBackground()
+            this.background =
+                if (isActive) getCustomBackground() else resources.getDrawable(R.drawable.bg_disabled)
         } else {
             this.setTextColor(resources.getColor(getTextColor()))
-            this.background = resources.getDrawable(getBackgroundRes())
+            this.background =
+                resources.getDrawable(if (isActive) getBackgroundRes() else R.drawable.bg_disabled)
         }
     }
 
