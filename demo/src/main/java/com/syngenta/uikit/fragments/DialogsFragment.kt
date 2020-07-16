@@ -36,11 +36,16 @@ class DialogsFragment : Fragment() {
     }
 
     private fun displayDialog() {
-        val styledDialog = StyledDialog(context!!)
+        val styledDialog = StyledDialog(context ?: return)
+
         styledDialog.setHeader("Confirm access to user")
+
         styledDialog.setMessage("Are your sure you want to give access to User 4?")
+
         styledDialog.setPositiveButtonText("Yes")
+
         styledDialog.setCancelable(false)
+
         styledDialog.setPositiveListener(View.OnClickListener {
             Toast.makeText(
                 context,
@@ -49,7 +54,9 @@ class DialogsFragment : Fragment() {
             ).show()
             styledDialog.dismiss()
         })
-        styledDialog.setColorTheme(resources.getColor(R.color.colorAccent))
+
+        styledDialog.setColorTheme(ColorGroup.TEAL)
+
         styledDialog.show()
     }
 }

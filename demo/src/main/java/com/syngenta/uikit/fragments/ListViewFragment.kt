@@ -17,8 +17,7 @@ import kotlinx.android.synthetic.main.fragment_list_view.*
  * A simple [Fragment] subclass.
  */
 class ListViewFragment : Fragment(), StyledItemCallback {
-
-    var adapter: StyledListAdapter<ListItem>? = null
+    private var adapter: StyledListAdapter<ListItem>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,28 +36,25 @@ class ListViewFragment : Fragment(), StyledItemCallback {
         super.onActivityCreated(savedInstanceState)
         adapter = StyledListAdapter(
             context!!,
-            initList(),
+            initialData(),
             recycler_view_generic,
             this
         )
     }
 
-    private fun initList(): Array<ListItem> {
+    private fun initialData(): Array<ListItem> {
         itemList.clear()
         counter = 0
-        itemList.add(
-            ListItem(
-                image = R.drawable.ic_launcher_foreground,
-                main = "Main $counter",
-                sub1 = "Sub 1",
-                sub2 = "Sub 2"
-            )
-        )
+        addItem()
         return itemList.toTypedArray()
     }
 
+    override fun onClick(item: StyledListItem) {
+        addItem()
+        adapter?.setItems(itemList.toTypedArray())
+    }
+
     private fun addItem() {
-        counter++
         itemList.add(
             ListItem(
                 image = R.drawable.ic_launcher_foreground,
@@ -67,17 +63,15 @@ class ListViewFragment : Fragment(), StyledItemCallback {
                 sub2 = "Sub 2"
             )
         )
-        adapter?.setItems(itemList.toTypedArray())
+        counter++
     }
+
 
     companion object {
         val itemList = mutableListOf<ListItem>()
         var counter: Int = 0
     }
 
-    override fun onClick(item: StyledListItem) {
-        addItem()
-    }
 }
 
 class ListItem(
