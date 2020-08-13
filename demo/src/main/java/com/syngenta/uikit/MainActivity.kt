@@ -19,10 +19,6 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    fun setTitle(title: String) {
-        supportActionBar?.title = title
-    }
-
     fun showButtonsLayout() {
         navigateTo(ButtonsFragment())
     }
@@ -33,10 +29,6 @@ class MainActivity : AppCompatActivity() {
 
     fun showColorsLayout() {
         navigateTo(ColorsFragment())
-    }
-
-    fun showListViewLayout() {
-        navigateTo(ListViewFragment())
     }
 
     private fun navigateTo(fragment: Fragment) {

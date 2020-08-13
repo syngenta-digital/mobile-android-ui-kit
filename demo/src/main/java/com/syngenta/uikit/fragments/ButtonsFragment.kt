@@ -20,13 +20,12 @@ class ButtonsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_buttons, container, false)
     }
 
-    override fun onResume() {
-        super.onResume()
-        (activity as MainActivity).setTitle(getString(R.string.buttons))
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        toolbar.setNavigationOnClickListener {
+            activity?.onBackPressed()
+        }
 
         selectTeal.setOnClickListener {
             clearAllChecks()

@@ -12,7 +12,9 @@ import com.syngenta.uikit.MainActivity
 import com.syngenta.uikit.R
 import com.syngenta.uikit.adapters.ColorItem
 import com.syngenta.uikit.adapters.ColorsAdapter
+import kotlinx.android.synthetic.main.fragment_buttons.*
 import kotlinx.android.synthetic.main.fragment_colors.*
+import kotlinx.android.synthetic.main.fragment_colors.toolbar
 
 /**
  * A simple [Fragment] subclass.
@@ -27,13 +29,13 @@ class ColorsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_colors, container, false)
     }
 
-    override fun onResume() {
-        super.onResume()
-        (activity as MainActivity).setTitle(getString(R.string.colors))
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        toolbar.setNavigationOnClickListener {
+            activity?.onBackPressed()
+        }
+
         initializeList()
         val context = context ?: return
 

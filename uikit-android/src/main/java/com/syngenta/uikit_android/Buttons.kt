@@ -18,7 +18,7 @@ enum class ColorGroup {
     YELLOW
 }
 
-class StyledButton : Button {
+class StyledButton : androidx.appcompat.widget.AppCompatButton {
 
     enum class ButtonType {
         PRIMARY,

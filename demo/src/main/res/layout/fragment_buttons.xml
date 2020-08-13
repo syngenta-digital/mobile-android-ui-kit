@@ -6,6 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ButtonsFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
+        android:elevation="8dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_width="wrap_content"
+            android:textColor="@color/teal_500"
+            android:layout_height="wrap_content"
+            android:text="@string/buttons" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <com.syngenta.uikit_android.StyledButton
         android:id="@+id/primaryButton"
         android:layout_width="match_parent"
@@ -16,7 +36,7 @@
         android:layout_marginBottom="30dp"
         android:text="@string/primary_button"
         app:colorTheme="teal"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:type="primary" />
 
     <com.syngenta.uikit_android.StyledButton
