@@ -26,6 +26,10 @@ class HomeFragment : Fragment() {
             (activity as MainActivity).showButtonsLayout()
         }
 
+        button_fonts.setOnClickListener {
+            (activity as MainActivity).showFontsLayout()
+        }
+
         button_dialogs.setOnClickListener {
             (activity as MainActivity).showDialogsLayout()
         }

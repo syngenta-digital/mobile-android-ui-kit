@@ -8,4 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="CustomFontDescription" parent="android:Widget.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
+        <item name="fontFamily">@font/noto_sans_regular</item>
+        <item name="android:paddingBottom">@dimen/padding_l</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_s</item>
+    </style>
+
 </resources>

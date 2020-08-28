@@ -23,6 +23,10 @@ class MainActivity : AppCompatActivity() {
         navigateTo(ButtonsFragment())
     }
 
+    fun showFontsLayout() {
+        navigateTo(FontsFragment())
+    }
+
     fun showDialogsLayout() {
         navigateTo(DialogsFragment())
     }
