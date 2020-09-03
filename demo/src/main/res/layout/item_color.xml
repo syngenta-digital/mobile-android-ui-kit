@@ -4,41 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:padding="@dimen/padding_m">
+
+    <ImageView
+        android:id="@+id/color_view"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/orange_500"
+        android:contentDescription="@string/color"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_color_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_regular"
         android:padding="2dp"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textSize="@dimen/text_m"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/color_view"
         tools:text="Color Name" />
 
     <TextView
         android:id="@+id/text_color_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_regular"
         android:padding="2dp"
-        android:textColor="@android:color/black"
-        android:textSize="14sp"
         android:textAllCaps="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_color_name"
-        tools:text="Color Code" />
-
-    <ImageView
-        android:id="@+id/color_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="150dp"
-        android:background="@color/orange_500"
-        android:contentDescription="@string/color"
-        app:layout_constraintBottom_toBottomOf="@id/text_color_code"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textSize="@dimen/text_m"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/text_color_name" />
-
+        app:layout_constraintTop_toBottomOf="@id/color_view"
+        tools:text="Color Code" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

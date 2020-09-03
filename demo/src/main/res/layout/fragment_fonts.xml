@@ -49,6 +49,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_regular"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_s" />
 
                 <TextView
@@ -66,6 +67,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_regular"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_m" />
 
                 <TextView
@@ -83,6 +85,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_regular"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_l" />
 
                 <TextView
@@ -100,6 +103,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_regular"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_xl" />
 
                 <TextView
@@ -111,14 +115,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/padding_xl"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="@dimen/padding_xl">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_italic"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_s" />
 
                 <TextView
@@ -136,6 +141,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_italic"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_m" />
 
                 <TextView
@@ -153,6 +159,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_italic"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_l" />
 
                 <TextView
@@ -170,6 +177,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_italic"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_xl" />
 
                 <TextView
@@ -181,14 +189,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/padding_xl"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="@dimen/padding_xl">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_bold"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_s" />
 
                 <TextView
@@ -206,6 +215,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_bold"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_m" />
 
                 <TextView
@@ -223,6 +233,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_bold"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_l" />
 
                 <TextView
@@ -240,6 +251,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_bold"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_xl" />
 
                 <TextView
@@ -251,14 +263,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/padding_xl"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="@dimen/padding_xl">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_bold_italic"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_s" />
 
                 <TextView
@@ -276,6 +289,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_bold_italic"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_m" />
 
                 <TextView
@@ -293,6 +307,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_bold_italic"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_l" />
 
                 <TextView
@@ -310,6 +325,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_bold_italic"
                     android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
                     android:textSize="@dimen/text_xl" />
 
                 <TextView
