@@ -1,0 +1,10 @@
+ ###############
+ # Shared Lanes#   
+ ###############
+  
+lane :get_artifact_name do |options|
+  versionNumber = options[:version_number]
+  buildType = options[:build_type]
+  buildNumber = options[:build_number]
+  "#{buildType}_#{versionNumber}_#{buildNumber}"
+end

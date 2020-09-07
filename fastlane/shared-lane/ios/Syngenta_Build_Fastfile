@@ -1,0 +1,250 @@
+require 'net/http'
+require 'uri'
+
+import_from_git(url: "git@github.com:syngenta-digital/mobile-ruby-fastlane-shared.git",
+              path: "shared-fastlane/Utility_Fastfile",
+              version: "~> 0.0.12")
+
+before_all do
+  setup_circle_ci
+end
+
+#####################
+# iOS Specific Lanes#   
+#####################
+desc "Build, test, or deliver project"
+lane :syngenta_build_ios_app do |options|
+
+  #check if required variables are passed, setup xcode
+  if !options[:scheme]
+    UI.crash!("No 'scheme' defined in project Fastfile")
+  end
+
+  if !options[:match_type]
+    UI.crash!("No 'match_type' defined in project Fastfile")
+  end
+
+  #fetch and set appropriate provisioning profile
+  p_run_match(options)
+
+  if options[:xcode_version]
+      xcversion(version: options[:xcode_version])
+  end
+  
+  #optionally lint test the app
+  p_lint(options)
+  #optionally perform sonar scan
+  p_sonar_cloud(options)
+  #set artifact name
+  options[:artifact_name] = get_artifact_name(options)
+  #set build number
+  increment_build_number(
+    build_number: ENV["CIRCLE_BUILD_NUM"]
+  )
+
+  #optionally test the app
+  p_run_ios_test(
+    test: options[:test],
+    artifact_name: options[:artifact_name],
+    version_number: get_version_number(target: options[:target]),
+    build_number: get_build_number,
+    scheme: options[:scheme],
+    devices: options[:devices],
+  )
+  #optionally check code to test coverage
+  p_run_code_coverage(options)
+  #optionally build and archive the project
+  p_build_ios_app(options)
+  #optionally package, sign and deliver the app app center or testflight
+  artifact_path = "#{options[:artifact_output_directory]}/#{options[:artifact_name]}.ipa"
+  archive_path = "#{options[:artifact_output_directory]}/#{options[:artifact_name]}.xcarchive"
+
+  if options[:appcenter_upload] == true 
+  p_upload_ios_appcenter(
+    appcenter_identifier: options[:appcenter_identifier],
+    artifact_path: artifact_path,
+  )
+  elsif options[:beta_store_upload] == true 
+    p_upload_beta_store(
+      beta_store_upload: options[:beta_store_upload],
+      artifact_path: artifact_path
+    )
+  else
+    UI.message "ipa external delivery is skipped...⏭️"
+  end
+end
+
+desc "Downloads appropriate provisioning profiles"
+private_lane :p_run_match do |options|
+  UI.message "Running match to download provisioning profiles..."
+  match(
+    type: options[:match_type],
+    username: ENV["APP_STORE_USER_NAME"],
+    app_identifier: options[:app_identifiers],
+    git_branch: options[:match_branch]
+  )
+end
+
+
+desc "Builds and archives the app"
+private_lane :p_build_ios_app do |options|
+  configuration = (options[:configuration] ? options[:configuration] : "Release")
+  skip_package = (options[:package] == true ? false : true)
+
+  if skip_package == true
+    UI.message "iOS packaging ipa is skipped...⏭️"
+    next
+  end
+  
+  if options[:clear_derived_data] == true
+    clear_derived_data
+  else
+    UI.message "Clear derived data is skipped...⏭️"
+  end
+    
+  if options[:workspace]
+    build_ios_app( #Fastlane Action
+      xcargs: "-allowProvisioningUpdates",
+      workspace: options[:workspace],
+      scheme: options[:scheme],
+      clean: true,
+      output_directory: options[:artifact_output_directory],
+      output_name: "#{options[:artifact_name]}.ipa",
+      configuration: configuration,
+      silent: (options[:silent] == true ? true : false),
+      skip_package_ipa: skip_package,
+      include_symbols: (options[:include_symbols] == true ? true : false),
+      include_bitcode: (options[:include_bitcode] == true ? true : false),
+      export_method: (!options[:export_method] ? "enterprise" : options[:export_method]),
+      skip_archive: false,
+      archive_path: "#{options[:artifact_output_directory]}/#{options[:artifact_name]}.xcarchive"
+    )
+  elsif options[:project]
+    build_ios_app( #Fastlane Action
+      xcargs: "-allowProvisioningUpdates",
+      project: options[:project],
+      scheme: options[:scheme],
+      clean: true,
+      output_directory: options[:artifact_output_directory],
+      output_name: "#{options[:artifact_name]}.ipa",
+      configuration: configuration,
+      silent: (options[:silent] == true ? true : false),
+      skip_package_ipa: skip_package,
+      include_symbols: (options[:include_symbols] == true ? true : false),
+      include_bitcode: (options[:include_bitcode] == true ? true : false),
+      export_method: (!options[:export_method] ? "enterprise" : options[:export_method]),
+      skip_archive: false,
+      archive_path: "#{options[:artifact_output_directory]}/#{options[:artifact_name]}.xcarchive"
+    )
+  else 
+    UI.crash!("No 'workspace' or 'project' defined in project Fastfile.")
+  end
+end
+
+desc "Runs project set tests against the app"
+private_lane :p_run_ios_test do |options|
+  if options[:test] == true 
+        UI.message "Code scan is enabled..."
+    scan( #Fastlane Action
+      scheme: options[:scheme],
+      devices: options[:devices],
+      slack_url: options[:slack_url],
+      slack_only_on_failure: false,
+      code_coverage: true
+    ) 
+  else 
+    UI.message "Code scan is skipped...⏭️"
+  end
+end
+
+desc "Checks code coverage of project set tests in the app"
+private_lane :p_run_code_coverage do |options|
+  if options[:code_coverage] == true 
+    UI.message "Code coverage is enabled..."
+    if options[:workspace]
+      slather( #Fastlane Action
+        workspace: options[:workspace],
+        proj: options[:project],
+        scheme: options[:scheme],
+        ignore: options[:slather_ignore]
+      )
+    elsif options[:project]
+      slather(
+        proj: options[:project],
+        scheme: options[:scheme],
+        ignore: options[:slather_ignore]
+      )
+    else
+      UI.crash!("No 'workspace' or 'project' defined in project Fastfile.")
+    end
+  else 
+    UI.message "Code coverage is skipped...⏭️"
+  end
+end
+
+desc "Runs linting against app"
+private_lane :p_lint do |options|
+  if options[:linting] == true 
+    UI.message "Lint is enabled..."
+    swiftlint(
+      executable: './Pods/SwiftLint/swiftlint',
+      reporter: "html",
+      strict: true,
+      output_file: "#{options[:artifact_output_directory]}/swiftlint.html"
+    )
+  else
+    UI.message "Linting skipped...⏭️"
+  end
+end
+
+desc "Runs sonar scan against app"
+private_lane :p_sonar_cloud do |options|
+   if options[:sonar] == true 
+    UI.message "sonar is enabled..."
+    sonar(
+      project_key: options[:sonar_project_key],
+      project_version: get_version_number(target: options[:target]),
+      project_name: options[:sonar_project_name],
+      sources_path: options[:sonar_sources_path]
+    )
+  else
+    UI.message "Sonar skipped...⏭️"
+  end
+end
+
+desc "Uploads the app to appcenter, p_build_ios_app must be called first"
+private_lane :p_upload_ios_appcenter do |options|
+  UI.message "Uploading to app center is enabled..."
+  if !options[:appcenter_identifier]
+    UI.message("App Center upload skipped. No 'appcenter_identifier' is defined in project Fastfile")
+    next
+  end
+  appcenter_upload(
+    api_token: ENV["APPCENTER_API_KEY"],
+    app_name: options[:appcenter_identifier],
+    owner_name: ENV["APPCENTER_OWNER_NAME"],
+    ipa: options[:artifact_path],
+    notify_testers: (options[:notify_testers] == true ? true : false),
+    release_notes: ENV["CI_COMMIT_MESSAGE"],
+    mandatory_update: (!options[:mandatory_update] ? false : options[:mandatory_update]),
+    group: options[:notify_group]
+  )
+end
+
+desc "Uploads the app to testflight, p_build_ios_app must be called first"
+private_lane :p_upload_beta_store do |options|
+  if !options[:artifact_path]
+    UI.error!("Beta Store upload skipped. No 'artifact_path' is defined in project Fastfile")
+    next
+  end
+  UI.message "Uploading to beta store is enabled..."
+  verify_xcode
+  upload_to_testflight(
+    skip_waiting_for_build_processing: true,
+    skip_submission: true,
+    apple_id: ENV["APP_STORE_CONNECT_APPLE_ID"],
+    team_id: ENV["APP_STORE_TEAM_ID"],
+    ipa: options[:artifact_path],
+    username: ENV["APP_STORE_USER_NAME"],
+  )
+end

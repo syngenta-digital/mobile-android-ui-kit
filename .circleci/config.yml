@@ -1,0 +1,37 @@
+version: 2.1
+
+orbs:
+  android: circleci/android@0.2.0
+
+machine:
+java:
+  version: 'oraclejdk8'
+
+jobs:
+  build:
+    executor: android/android
+    working_directory: ~/code
+    docker:
+      - image: circleci/android:api-29
+        #    environment:
+        #    JVM_OPTS: -Xmx3200m
+
+    steps:
+      - checkout
+      - run:
+          name: Check java
+          command: java -version
+      - run:
+          name: install dependencies
+          command: |
+            gem update --system
+            gem install bundler
+      - run:
+          name: Install fastlane
+          command: bundle install
+      - run:
+          name: Execute fastlane
+          command: bundle exec fastlane integration
+      - store_artifacts:
+          path: /home/circleci/code/demo/build/outputs
+          destination: artifacts

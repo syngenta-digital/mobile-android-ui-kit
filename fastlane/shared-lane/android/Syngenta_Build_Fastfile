@@ -1,0 +1,174 @@
+require 'net/http'
+require 'uri'
+
+# import_from_git(url: "git@github.com:syngenta-digital/mobile-ruby-fastlane-shared.git",
+#               path: "shared-fastlane/Utility_Fastfile",
+#               version: "~> 0.0.12")
+# "https://github.com/syngenta-digital/mobile-ruby-fastlane-shared/blob/master/shared-fastlane/Utility_Fastfile"
+
+
+import "shared-lane/Utility_Fastfile"
+
+
+before_all do
+  setup_circle_ci
+end
+
+########################
+# Android Specfic Lanes#   
+########################
+
+desc "Build, test, or deliver project"
+lane :syngenta_build_android_app do |options|
+  # if !options[:build_type]
+  #   UI.crash!("No 'build_type' defined in project Fastfile")    
+  #   next
+  # end
+  #check if required variables are passed
+  gradle(
+    task: "clean"
+  )
+  #optionally test the app
+  p_run_android_test(options)
+  #optionally build and archive the project
+  p_build_android_app(options)
+  #optionally package, sign and deliver the app to nexus, hockey and/or testflight
+  artifact_name = ""
+  if options[:package] == true && (options[:appcenter_upload] == true || options[:beta_store_upload] == true)
+    artifact_name = get_artifact_name(
+      version_number: android_get_version_name,
+      build_type: options[:build_type]
+    )
+    artifact_path = lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+  end
+
+  if options[:appcenter_upload] == true 
+    UI.message artifact_path
+    p_upload_android_appcenter(
+      appcenter_identifier: options[:appcenter_identifier],
+      artifact_path: artifact_path
+    )
+  elsif options[:beta_store_upload] == true 
+    UI.message artifact_path
+    p_upload_beta_store(
+      beta_store_upload: options[:beta_store_upload],
+      artifact_path: artifact_path,
+      key_alias: options[:key_alias]
+    )
+  else
+    UI.message "ipa external delivery is skipped...⏭️"
+  end
+end
+
+desc "Uploads the app to play store alpha track"
+lane :p_upload_beta_store do |options|
+    if !options[:key_alias]
+      UI.error!("Beta Store upload skipped. No 'key_alias' is defined in project Fastfile")
+      next
+    end
+    UI.message "Uploading to beta store is enabled..."
+    UI.message "Sending APK with path: " + lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+    upload_to_play_store(
+      track: "alpha",
+      skip_upload_images: "true",
+      skip_upload_screenshots: "true",
+      json_key: "#{ENV["GOOGLE_ACCESS_KEY_FILE_PATH"]}",
+      apk: lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+    )
+end
+
+desc "Builds and archives the app"
+private_lane :p_build_android_app do |options|
+  skip_package = (options[:package] == true ? false : true)
+
+  task = (options[:bundle_task] == true ? "bundle" : "assemble")
+
+
+  # android_set_version_code(
+  #     version_code: ENV["BUILD_NUMBER"].to_i
+  # )
+  if skip_package == true
+    UI.message "Android build apk is skipped...⏭️"
+    next
+  end
+  propertiesMap = { }
+  if options[:beta_store_upload] == true || options[:appcenter_upload] == true
+    propertiesMap = {
+        "android.injected.signing.store.file" => ENV["STORE_FILE_PATH"],
+        "android.injected.signing.store.password" => ENV["ANDROID_KEYS_PASSWORD"],
+        "android.injected.signing.key.alias" => ENV["ANDROID_KEY_AlIAS"],
+        "android.injected.signing.key.password" => ENV["ANDROID_KEYS_PASSWORD"]
+      }
+  end
+  
+  if !options[:flavor]
+    gradle(
+      task: task,
+      build_type: options[:build_type],
+      properties: propertiesMap
+    )
+  elsif
+    gradle(
+      task: task,
+      build_type: options[:build_type],
+      flavor: options[:flavor],
+      properties: propertiesMap
+    )
+  end
+  UI.message [SharedValues::GRADLE_APK_OUTPUT_PATH]
+end
+
+desc "Runs project set tests against the app"
+private_lane :p_run_android_test do |options|
+  if options[:test] == false 
+    UI.message "Code scan is skipped...⏭️"
+    next
+  end
+  
+  if !options[:test_name]
+    UI.crash "No 'test_name' defined in project Fastfile"
+    next
+  end
+  UI.message "Code scan is enabled..."
+  if !options[:build_type]
+    gradle(
+      task: options[:test_name]
+    )
+      UI.message "@@@@@@@ Just passing task"
+  elsif !options[:flavor]
+    gradle(
+      task: options[:test_name],
+      build_type: options[:build_type]
+    )
+  else
+    gradle(
+      task: options[:test_name],
+      build_type: options[:build_type],
+      flavor: options[:flavor]
+    )
+  end      
+  
+end
+
+desc "Uploads the app to appcenter, p_build_ios_app must be called first"
+lane :p_upload_android_appcenter do |options|
+  UI.message "Uploading to app center is enabled..."
+  if !options[:appcenter_identifier]
+    UI.message("App Center upload skipped. No 'appcenter_identifier' is defined in project Fastfile")
+    next
+  end
+
+  if !options[:artifact_path]
+    UI.error!("App Center upload skipped. No 'artifact_path' is defined in project Fastfile")
+    next
+  end
+  appcenter_upload(
+    api_token: ENV["APPCENTER_API_KEY"],
+    app_name: options[:appcenter_identifier],
+    owner_name: ENV["APPCENTER_OWNER_NAME"],
+    apk: options[:artifact_path],
+    notify_testers: (options[:notify_testers] == true ? true : false),
+    release_notes: ENV["CI_COMMIT_MESSAGE"],
+    mandatory_update: (!options[:mandatory_update] ? false : options[:mandatory_update]),
+    group: options[:notify_group])
+end
