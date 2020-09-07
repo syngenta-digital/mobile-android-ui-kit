@@ -28,10 +28,10 @@ jobs:
             gem install bundler
       - run:
           name: Install fastlane
-          command: cd farmshots && bundle install
+          command: bundle install
       - run:
           name: Execute fastlane
-          command: cd farmshots && bundle exec fastlane integration
+          command: bundle exec fastlane integration
       - store_artifacts:
           path: /home/circleci/code/demo/build/outputs
           destination: artifacts
