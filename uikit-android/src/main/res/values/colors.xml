@@ -21,43 +21,108 @@
     <color name="yellow_300">#FCECBA</color>
     <color name="yellow_500">#F6CA46</color>
     <color name="yellow_700">#836407</color>
-    <color name="white">#FFFFFF</color>
     <color name="neutral_500">#DFE2E7</color>
 
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 
+    <color name="cw_green_10">#DFFBE8</color>
+    <color name="cw_green_20">#C3EAD1</color>
+    <color name="cw_green_30">#90D6AA</color>
+    <color name="cw_green_40">#5EBB7F</color>
     <color name="cw_green_50">#19A04B</color>
     <color name="cw_green_60">#14803C</color>
     <color name="cw_green_70">#0C612C</color>
+    <color name="cw_green_80">#06431C</color>
+    <color name="cw_green_90">#032D10</color>
+    <color name="cw_green_100">#011B07</color>
 
+    <color name="cw_red_10">#FFF1F1</color>
+    <color name="cw_red_20">#FFD9D9</color>
+    <color name="cw_red_30">#FFB3B3</color>
+    <color name="cw_red_40">#F98989</color>
     <color name="cw_red_50">#EB4B4B</color>
     <color name="cw_red_60">#CF3537</color>
     <color name="cw_red_70">#9C2628</color>
+    <color name="cw_red_80">#70191A</color>
+    <color name="cw_red_90">#4C0E0F</color>
+    <color name="cw_red_100">#300606</color>
 
+    <color name="cw_orange_10">#FFF1ED</color>
+    <color name="cw_orange_20">#FFDACE</color>
+    <color name="cw_orange_30">#FFB59D</color>
+    <color name="cw_orange_40">#FF785A</color>
     <color name="cw_orange_50">#EE5B3A</color>
     <color name="cw_orange_60">#C1462B</color>
     <color name="cw_orange_70">#92331E</color>
+    <color name="cw_orange_80">#682213</color>
+    <color name="cw_orange_90">#48150A</color>
+    <color name="cw_orange_100">#2D0A04</color>
 
+    <color name="cw_yellow_10">#FFF3DD</color>
+    <color name="cw_yellow_20">#FFE4AE</color>
+    <color name="cw_yellow_30">#F0C355</color>
+    <color name="cw_yellow_40">#E99921</color>
     <color name="cw_yellow_50">#C17E19</color>
     <color name="cw_yellow_60">#9A6412</color>
     <color name="cw_yellow_70">#744A0B</color>
+    <color name="cw_yellow_80">#523305</color>
+    <color name="cw_yellow_90">#372102</color>
+    <color name="cw_yellow_100">#221201</color>
 
+    <color name="cw_blue_10">#EAF6FF</color>
+    <color name="cw_blue_20">#C6E6FF</color>
+    <color name="cw_blue_30">#82CFFF</color>
+    <color name="cw_blue_40">#31B4F2</color>
     <color name="cw_blue_50">#0092E4</color>
     <color name="cw_blue_60">#0071CD</color>
     <color name="cw_blue_70">#005693</color>
+    <color name="cw_blue_80">#003B69</color>
+    <color name="cw_blue_90">#002747</color>
+    <color name="cw_blue_100">#00172D</color>
 
+    <color name="cw_teal_10">#E0F9F7</color>
+    <color name="cw_teal_20">#A9EFE8</color>
+    <color name="cw_teal_30">#5FD2C8</color>
+    <color name="cw_teal_40">#46BBB0</color>
     <color name="cw_teal_50">#2B9C92</color>
     <color name="cw_teal_60">#217C74</color>
     <color name="cw_teal_70">#165C56</color>
+    <color name="cw_teal_80">#0D413C</color>
+    <color name="cw_teal_90">#062B27</color>
+    <color name="cw_teal_100">#021917</color>
 
+    <color name="cw_purple_10">#F6F2FE</color>
+    <color name="cw_purple_20">#E7DDFC</color>
+    <color name="cw_purple_30">#D2BDF9</color>
+    <color name="cw_purple_40">#BA99F6</color>
     <color name="cw_purple_50">#9664F0</color>
     <color name="cw_purple_60">#8354D6</color>
     <color name="cw_purple_70">#643AAA</color>
+    <color name="cw_purple_80">#462779</color>
+    <color name="cw_purple_90">#2E1954</color>
+    <color name="cw_purple_100">#1C0D35</color>
 
+    <color name="cw_pink_10">#FFF1F3</color>
+    <color name="cw_pink_20">#FFD8DF</color>
+    <color name="cw_pink_30">#FFB2C1</color>
+    <color name="cw_pink_40">#FF7D96</color>
     <color name="cw_pink_50">#E85D78</color>
     <color name="cw_pink_60">#BB485D</color>
     <color name="cw_pink_70">#8D3545</color>
+    <color name="cw_pink_80">#65232F</color>
+    <color name="cw_pink_90">#45161E</color>
+    <color name="cw_pink_100">#2B0A10</color>
 
+    <color name="cw_neutral_00">#FFFFFF</color>
+    <color name="cw_neutral_10">#F3F4F6</color>
+    <color name="cw_neutral_20">#DFE2E7</color>
+    <color name="cw_neutral_30">#C2C7D0</color>
+    <color name="cw_neutral_40">#A3A9B9</color>
     <color name="cw_neutral_50">#868CA2</color>
     <color name="cw_neutral_60">#696F88</color>
     <color name="cw_neutral_70">#4D5165</color>
+    <color name="cw_neutral_80">#363948</color>
+    <color name="cw_neutral_90">#232630</color>
+    <color name="cw_neutral_100">#14151C</color>
 </resources>

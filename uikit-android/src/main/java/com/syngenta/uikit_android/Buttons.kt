@@ -78,7 +78,7 @@ class StyledButton : androidx.appcompat.widget.AppCompatButton {
 
     private fun refreshTheme() {
         if (overrideColor != -1) {
-            this.setTextColor(if (type == 0) resources.getColor(R.color.white) else overrideColor)
+            this.setTextColor(if (type == 0) resources.getColor(R.color.cw_neutral_00) else overrideColor)
             this.background =
                 if (isActive) getCustomBackground() else resources.getDrawable(R.drawable.bg_disabled)
         } else {
@@ -146,7 +146,7 @@ class StyledButton : androidx.appcompat.widget.AppCompatButton {
 
     private fun getTextColor(): Int {
         if (type == 0) {
-            return R.color.white
+            return R.color.cw_neutral_00
         }
         return when (colorGroup) {
             0 -> R.color.teal_500
@@ -178,11 +178,11 @@ class StyledButton : androidx.appcompat.widget.AppCompatButton {
             2 -> {
                 defaultState.setStroke(3, overrideColor)
                 pressedState.setStroke(3, overrideColor)
-                defaultState.setColor(resources.getColor(R.color.white))
+                defaultState.setColor(resources.getColor(R.color.cw_neutral_00))
                 pressedState.setColor(resources.getColor(R.color.neutral_500))
             }
             else -> {
-                defaultState.setColor(resources.getColor(R.color.white))
+                defaultState.setColor(resources.getColor(R.color.cw_neutral_00))
                 pressedState.setColor(resources.getColor(R.color.neutral_500))
             }
         }
