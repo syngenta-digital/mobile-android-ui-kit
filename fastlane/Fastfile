@@ -1,0 +1,63 @@
+
+# import_from_git(url: "git@github.com:syngenta-digital/mobile-ruby-fastlane-shared.git",
+#               path: "shared-fastlane/android/Syngenta_Build_Fastfile",
+#               version: "~> 0.0.12")
+import "shared-lane/android/Syngenta_Build_Fastfile"
+
+# Project Specific Variables
+test_name = "test"
+build_type = "debug"
+slack_url = "https://hooks.slack.com/services/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"
+
+desc "Builds and tests dev version when code changes are made in bitbucket repo"
+lane :integration do |options|
+  # syngenta_build_android_app(
+  #   test: true,
+  #   test_name: test_name,
+  # )
+    syngenta_build_android_app(
+    build_type: "release",
+    test: false,
+    test_name: test_name,
+    package: true,
+    bundle_task: false,
+    beta_store_upload: false,
+  )
+
+end
+
+# desc "builds, creates uat facing apk, pushes to hockey"
+# lane :uat_delivery do |options|
+#   slack_notification(message: "Submitting FarmShots iOS to AppCenter")
+#   syngenta_build_android_app(
+#     build_type: "debug",
+#     test: true,
+#     test_name: test_name,
+#     package: true,
+#     appcenter_upload: false,
+#     appcenter_identifier: "FarmShots"
+#   )
+# end
+
+desc "builds, creates uat facing ipa, pushes to hockey"
+lane :prod_delivery do |options|
+  slack_notification(message: "Submitting FarmShots iOS to AppCenter")
+  syngenta_build_android_app(
+    build_type: "release",
+    test: true,
+    test_name: test_name,
+    package: true,
+    beta_store_upload: false,
+  )
+end
+
+private_lane :slack_notification do |options|
+  slack(
+    message: options[:message],
+    slack_url: slack_url,
+    channel: slack_channel,
+    payload: {
+      "Build Date" => Time.new.to_s
+    }
+  )
+end
