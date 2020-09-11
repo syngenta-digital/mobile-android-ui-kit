@@ -1,13 +1,8 @@
 <resources>
     <string name="app_name">UIKit</string>
-    <string name="primary_button">Primary Button</string>
-    <string name="secondary_button">Secondary Button</string>
-    <string name="tertiary_button">Tertiary Button</string>
-    <string name="text_button">Text Button</string>
     <string name="cropwise_ui_kit">Cropwise UIKit</string>
     <string name="home">Home</string>
     <string name="buttons">Buttons</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dialogs">Reusable Dialogs</string>
     <string name="show_simple_dialog">Show Simple Dialog</string>
     <string name="color">color</string>
@@ -15,10 +10,5 @@
     <string name="list_view">List View</string>
     <string name="fonts">Fonts</string>
     <string name="sample_text">The face of the moon was in shadow.</string>
-    <string name="primary_solid">Primary Solid</string>
-    <string name="default_solid">Default Solid</string>
-    <string name="danger_solid">Danger Solid</string>
-    <string name="primary_ghost">Primary Ghost</string>
-    <string name="danger_ghost">Danger Ghost</string>
     <string name="enable_disable">Disable / Enable</string>
 </resources>
