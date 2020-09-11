@@ -5,13 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.syngenta.uikit.MainActivity
 import com.syngenta.uikit.R
-import com.syngenta.uikit_android.ColorGroup
-import com.syngenta.uikit_android.StyledDialog
-import kotlinx.android.synthetic.main.fragment_colors.*
 import kotlinx.android.synthetic.main.fragment_dialogs.*
 import kotlinx.android.synthetic.main.fragment_dialogs.toolbar
 
@@ -38,27 +33,27 @@ class DialogsFragment : Fragment() {
     }
 
     private fun displayDialog() {
-        val styledDialog = StyledDialog(context ?: return)
-
-        styledDialog.setHeader("Confirm access to user")
-
-        styledDialog.setMessage("Are your sure you want to give access to User 4?")
-
-        styledDialog.setPositiveButtonText("Yes")
-
-        styledDialog.setCancelable(false)
-
-        styledDialog.setPositiveListener(View.OnClickListener {
-            Toast.makeText(
-                context,
-                "Access Granted!",
-                Toast.LENGTH_SHORT
-            ).show()
-            styledDialog.dismiss()
-        })
-
-        styledDialog.setColorTheme(ColorGroup.TEAL)
-
-        styledDialog.show()
+//        val styledDialog = StyledDialog(context ?: return)
+//
+//        styledDialog.setHeader("Confirm access to user")
+//
+//        styledDialog.setMessage("Are your sure you want to give access to User 4?")
+//
+//        styledDialog.setPositiveButtonText("Yes")
+//
+//        styledDialog.setCancelable(false)
+//
+//        styledDialog.setPositiveListener(View.OnClickListener {
+//            Toast.makeText(
+//                context,
+//                "Access Granted!",
+//                Toast.LENGTH_SHORT
+//            ).show()
+//            styledDialog.dismiss()
+//        })
+//
+//        styledDialog.setColorTheme(ColorGroup.TEAL)
+//
+//        styledDialog.show()
     }
 }
