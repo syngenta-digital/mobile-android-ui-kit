@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="@dimen/padding_l">
 
     <TextView
         android:id="@+id/text_heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="2dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/noto_sans_bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
         tools:text="This is a heading text" />
 
     <TextView
         android:id="@+id/text_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="2dp"
-        android:textSize="16sp"
+        android:fontFamily="@font/noto_sans_regular"
+        android:paddingTop="@dimen/padding_m"
+        android:paddingBottom="@dimen/padding_m"
+        android:textSize="14sp"
         tools:text="This is user message\n added across multiple lines" />
 
-    <com.syngenta.uikit_android.StyledButton
-        android:id="@+id/button_positive"
+    <Button
+        android:id="@+id/button_primary"
+        style="@style/cwSolidPrimaryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
-        app:type="primary"
+        android:layout_marginTop="@dimen/padding_l"
         tools:text="Accept" />
 
-    <com.syngenta.uikit_android.StyledButton
-        android:id="@+id/button_cancel"
+    <Button
+        android:id="@+id/button_danger"
+        style="@style/cwSolidDangerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        app:type="tertiary"
+        android:layout_marginTop="@dimen/padding_l"
+        tools:text="Delete" />
+
+    <Button
+        android:id="@+id/button_cancel"
+        style="@style/cwSolidDefaultButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_l"
+        android:layout_marginBottom="@dimen/padding_m"
         tools:text="Cancel" />
 
 </LinearLayout>

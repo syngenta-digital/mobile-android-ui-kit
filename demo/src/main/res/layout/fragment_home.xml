@@ -14,7 +14,7 @@
         android:gravity="center"
         android:padding="32dp"
         android:text="@string/cropwise_ui_kit"
-        android:textColor="@color/teal_500"
+        android:textColor="@color/cw_green_60"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,33 +29,33 @@
 
         <Button
             android:id="@+id/button_buttons"
+            style="@style/cwSolidDefaultButton"
             android:layout_width="match_parent"
-            android:fontFamily="@font/noto_sans_regular"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/buttons" />
 
         <Button
             android:id="@+id/button_fonts"
+            style="@style/cwSolidDefaultButton"
             android:layout_width="match_parent"
-            android:fontFamily="@font/noto_sans_regular"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/fonts" />
 
         <Button
             android:id="@+id/button_dialogs"
+            style="@style/cwSolidDefaultButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/noto_sans_regular"
             android:layout_margin="16dp"
             android:text="@string/dialogs" />
 
         <Button
             android:id="@+id/button_colors"
+            style="@style/cwSolidDefaultButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/noto_sans_regular"
             android:layout_margin="16dp"
             android:text="@string/colors" />
 
