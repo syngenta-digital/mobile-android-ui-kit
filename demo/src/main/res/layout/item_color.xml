@@ -10,7 +10,7 @@
         android:id="@+id/color_view"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/orange_500"
+        android:background="@color/cw_orange_60"
         android:contentDescription="@string/color"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/noto_sans_regular"
             android:text="@string/fonts"
-            android:textColor="@color/teal_500" />
+            android:textColor="@color/cw_green_60" />
 
     </androidx.appcompat.widget.Toolbar>
 
