@@ -1,5 +1,5 @@
 # UIKit-Android
-UIKit for Syngenta
+Cropwise UIKit
 
 How to setup:
 

@@ -6,60 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment">
 
+    <TextView
+        android:id="@+id/text_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_regular"
+        android:gravity="center"
+        android:padding="32dp"
+        android:text="@string/cropwise_ui_kit"
+        android:textColor="@color/cw_green_60"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="160dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/text_heading">
 
-        <TextView
-            android:id="@+id/text_heading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="@string/syngenta_ui_kit"
-            android:textColor="@android:color/black"
-            android:textSize="32sp"
-            android:textStyle="bold" />
-
-        <com.syngenta.uikit_android.StyledButton
+        <Button
             android:id="@+id/button_buttons"
+            style="@style/cwSolidDefaultButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/buttons"
-            app:colorNew="@android:color/black"
-            app:type="text" />
+            android:text="@string/buttons" />
 
-        <com.syngenta.uikit_android.StyledButton
+        <Button
+            android:id="@+id/button_fonts"
+            style="@style/cwSolidDefaultButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/fonts" />
+
+        <Button
             android:id="@+id/button_dialogs"
+            style="@style/cwSolidDefaultButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/dialogs"
-            app:colorNew="@android:color/black"
-            app:type="text" />
+            android:text="@string/dialogs" />
 
-        <com.syngenta.uikit_android.StyledButton
-            android:id="@+id/button_list_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="@string/list_view"
-            app:colorNew="@android:color/black"
-            app:type="text" />
-
-        <com.syngenta.uikit_android.StyledButton
+        <Button
             android:id="@+id/button_colors"
+            style="@style/cwSolidDefaultButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/colors"
-            app:colorNew="@android:color/black"
-            app:type="text" />
+            android:text="@string/colors" />
 
     </LinearLayout>
 

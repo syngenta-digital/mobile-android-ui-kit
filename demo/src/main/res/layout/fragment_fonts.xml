@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.FontsFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="8dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_regular"
+            android:text="@string/fonts"
+            android:textColor="@color/cw_green_60" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_l">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_s" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_regular / text_s (8sp)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_m" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_regular / text_m (12sp)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_l" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_regular / text_l (16sp)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_xl" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_regular / text_xl (24sp)" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/padding_xl">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_italic"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_s" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_italic / text_s (8sp)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_italic"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_m" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_italic / text_m (12sp)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_italic"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_l" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_italic / text_l (16sp)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_italic"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_xl" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_italic / text_xl (24sp)" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/padding_xl">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_s" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_bold / text_s (8sp)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_m" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_bold / text_m (12sp)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_l" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_bold / text_l (16sp)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_xl" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_bold / text_xl (24sp)" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/padding_xl">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_bold_italic"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_s" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_bold_italic / text_s (8sp)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_bold_italic"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_m" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_bold_italic / text_m (12sp)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_bold_italic"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_l" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_bold_italic / text_l (16sp)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_bold_italic"
+                    android:text="@string/sample_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_xl" />
+
+                <TextView
+                    style="@style/CustomFontDescription"
+                    android:text="Style: noto_sans_bold_italic / text_xl (24sp)" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

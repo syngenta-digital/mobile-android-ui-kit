@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">UIKit</string>
-    <string name="primary_button">Primary Button</string>
-    <string name="secondary_button">Secondary Button</string>
-    <string name="tertiary_button">Tertiary Button</string>
-    <string name="text_button">Text Button</string>
-    <string name="syngenta_ui_kit">Syngenta UIKit</string>
+    <string name="cropwise_ui_kit">Cropwise UIKit</string>
     <string name="home">Home</string>
     <string name="buttons">Buttons</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="dialogs">Dialogs</string>
-    <string name="show_simple_dialog">Show Simple Dialog</string>
+    <string name="dialogs">Reusable Dialogs</string>
+    <string name="show_primary_dialog">Show Primary Dialog</string>
     <string name="color">color</string>
     <string name="colors">Colors</string>
     <string name="list_view">List View</string>
+    <string name="fonts">Fonts</string>
+    <string name="sample_text">The face of the moon was in shadow.</string>
+    <string name="enable_disable">Disable / Enable</string>
+    <string name="show_alert_dialog">Show Alert Dialog</string>
+    <string name="show_danger_dialog">Show Danger Dialog</string>
 </resources>

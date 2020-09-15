@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_s">8sp</dimen>
+    <dimen name="text_m">12sp</dimen>
+    <dimen name="text_l">16sp</dimen>
+    <dimen name="text_xl">24sp</dimen>
+    <dimen name="padding_m">12dp</dimen>
+    <dimen name="padding_l">16dp</dimen>
+    <dimen name="padding_xl">24dp</dimen>
+    <dimen name="padding_xxl">48dp</dimen>
+    <dimen name="button_width">256dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+</resources>
