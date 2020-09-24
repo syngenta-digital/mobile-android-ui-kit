@@ -7,7 +7,7 @@ import_from_git(url: "git@github.com:syngenta-digital/mobile-ruby-fastlane-share
 # Project Specific Variables
 test_name = "test"
 build_type = "debug"
-slack_url = "https://hooks.slack.com/services/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"
+slack_url = "https://hooks.slack.com/services/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"
 
 desc "Builds and tests dev version when code changes are made in bitbucket repo"
 lane :integration do |options|
