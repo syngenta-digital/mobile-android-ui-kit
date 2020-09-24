@@ -19,7 +19,7 @@ lane :integration do |options|
     bundle_task: false,
     beta_store_upload: false,
   )
-slack_notification(message: "UIKit build generation done")
+# slack_notification(message: "UIKit build generation done")
 end
 
 desc "builds, creates prod facing apk, pushes to google play store alpha"
@@ -33,7 +33,7 @@ lane :delivery do |options|
     json_key: json_key,
     package_name: package_name
   )
-  slack_notification(message: "Android release process done")
+# slack_notification(message: "Android release process done")
 end
 
 private_lane :slack_notification do |options|
