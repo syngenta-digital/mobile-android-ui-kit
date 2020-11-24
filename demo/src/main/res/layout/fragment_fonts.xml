@@ -54,7 +54,7 @@
 
                 <TextView
                     style="@style/CustomFontDescription"
-                    android:text="Style: noto_sans_regular / text_s (8sp)" />
+                    android:text="Style: noto_sans_regular / text_s (12sp)" />
             </LinearLayout>
 
             <LinearLayout
@@ -72,7 +72,7 @@
 
                 <TextView
                     style="@style/CustomFontDescription"
-                    android:text="Style: noto_sans_regular / text_m (12sp)" />
+                    android:text="Style: noto_sans_regular / text_m (14sp)" />
             </LinearLayout>
 
             <LinearLayout
@@ -108,7 +108,7 @@
 
                 <TextView
                     style="@style/CustomFontDescription"
-                    android:text="Style: noto_sans_regular / text_xl (24sp)" />
+                    android:text="Style: noto_sans_regular / text_xl (20sp)" />
             </LinearLayout>
 
 
@@ -128,7 +128,7 @@
 
                 <TextView
                     style="@style/CustomFontDescription"
-                    android:text="Style: noto_sans_italic / text_s (8sp)" />
+                    android:text="Style: noto_sans_italic / text_s (12sp)" />
             </LinearLayout>
 
             <LinearLayout
@@ -146,7 +146,7 @@
 
                 <TextView
                     style="@style/CustomFontDescription"
-                    android:text="Style: noto_sans_italic / text_m (12sp)" />
+                    android:text="Style: noto_sans_italic / text_m (14sp)" />
             </LinearLayout>
 
             <LinearLayout
@@ -182,7 +182,7 @@
 
                 <TextView
                     style="@style/CustomFontDescription"
-                    android:text="Style: noto_sans_italic / text_xl (24sp)" />
+                    android:text="Style: noto_sans_italic / text_xl (20sp)" />
             </LinearLayout>
 
 
@@ -202,7 +202,7 @@
 
                 <TextView
                     style="@style/CustomFontDescription"
-                    android:text="Style: noto_sans_bold / text_s (8sp)" />
+                    android:text="Style: noto_sans_bold / text_s (12sp)" />
             </LinearLayout>
 
             <LinearLayout
@@ -220,7 +220,7 @@
 
                 <TextView
                     style="@style/CustomFontDescription"
-                    android:text="Style: noto_sans_bold / text_m (12sp)" />
+                    android:text="Style: noto_sans_bold / text_m (14sp)" />
             </LinearLayout>
 
             <LinearLayout
@@ -256,7 +256,7 @@
 
                 <TextView
                     style="@style/CustomFontDescription"
-                    android:text="Style: noto_sans_bold / text_xl (24sp)" />
+                    android:text="Style: noto_sans_bold / text_xl (20sp)" />
             </LinearLayout>
 
 
@@ -276,7 +276,7 @@
 
                 <TextView
                     style="@style/CustomFontDescription"
-                    android:text="Style: noto_sans_bold_italic / text_s (8sp)" />
+                    android:text="Style: noto_sans_bold_italic / text_s (12sp)" />
             </LinearLayout>
 
             <LinearLayout
@@ -294,7 +294,7 @@
 
                 <TextView
                     style="@style/CustomFontDescription"
-                    android:text="Style: noto_sans_bold_italic / text_m (12sp)" />
+                    android:text="Style: noto_sans_bold_italic / text_m (14sp)" />
             </LinearLayout>
 
             <LinearLayout
@@ -330,7 +330,7 @@
 
                 <TextView
                     style="@style/CustomFontDescription"
-                    android:text="Style: noto_sans_bold_italic / text_xl (24sp)" />
+                    android:text="Style: noto_sans_bold_italic / text_xl (20sp)" />
             </LinearLayout>
 
 

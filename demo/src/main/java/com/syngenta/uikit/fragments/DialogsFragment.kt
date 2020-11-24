@@ -44,6 +44,7 @@ class DialogsFragment : Fragment() {
 
     private fun displayAlertDialog() {
         val alertDialog = CwDialog(type = DialogType.Alert, context = context ?: return)
+
         alertDialog.setHeader("App update")
         alertDialog.setMessage("A new update will be available in 3 days.")
         alertDialog.setDismissButtonText("OK")
@@ -58,8 +59,9 @@ class DialogsFragment : Fragment() {
 
     private fun displayPrimaryDialog() {
         val primaryDialog = CwDialog(type = DialogType.Primary, context = context ?: return)
+
         primaryDialog.setHeader("Access Confirmation")
-        primaryDialog.setMessage("Are your sure you want to give edit permission to John Doe?")
+        primaryDialog.setMessage("Are you sure you want to give edit permission to John Doe?")
         primaryDialog.setProceedButtonText("Confirm")
         primaryDialog.setCancelable(false)
         primaryDialog.setProceedListener(View.OnClickListener {
@@ -70,13 +72,15 @@ class DialogsFragment : Fragment() {
             Toast.makeText(context, "Action Cancelled", Toast.LENGTH_SHORT).show()
             primaryDialog.dismiss()
         })
+
         primaryDialog.show()
     }
 
     private fun displayDangerDialog() {
         val dangerDialog = CwDialog(type = DialogType.Danger, context = context ?: return)
+
         dangerDialog.setHeader("Delete Confirmation")
-        dangerDialog.setMessage("Are your sure you want to delete 40 records?")
+        dangerDialog.setMessage("Are you sure you want to delete 40 records?")
         dangerDialog.setProceedButtonText("Delete")
         dangerDialog.setCancelable(false)
         dangerDialog.setProceedListener(View.OnClickListener {
@@ -87,6 +91,7 @@ class DialogsFragment : Fragment() {
             Toast.makeText(context, "Action Cancelled", Toast.LENGTH_SHORT).show()
             dangerDialog.dismiss()
         })
+
         dangerDialog.show()
     }
 }
