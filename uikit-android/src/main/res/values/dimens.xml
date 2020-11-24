@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="text_s">8sp</dimen>
-    <dimen name="text_m">12sp</dimen>
+    <dimen name="text_s">12sp</dimen>
+    <dimen name="text_m">14sp</dimen>
     <dimen name="text_l">16sp</dimen>
-    <dimen name="text_xl">24sp</dimen>
+    <dimen name="text_xl">20sp</dimen>
     <dimen name="padding_m">12dp</dimen>
     <dimen name="padding_l">16dp</dimen>
     <dimen name="padding_xl">24dp</dimen>
