@@ -18,4 +18,4 @@ Step 2. Add the dependency
 	        implementation 'com.github.syngenta-dpe-usco:mobile-android-ui-kit:Tag'
 	}
   
-Step 3. Replace 'Tag' with 1.1 or latest version.
+Step 3. Replace 'Tag' with 1.2 or latest version.
