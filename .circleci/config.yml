@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   android: circleci/android@0.2.0
+  sonarcloud: sonarsource/sonarcloud@2.0.0
 
 machine:
 java:
@@ -35,3 +36,4 @@ jobs:
       - store_artifacts:
           path: /home/circleci/code/demo/build/outputs
           destination: artifacts
+      - sonarcloud/scan
